@@ -1,0 +1,52 @@
+Database Design Process
+  -> What kind of thing are we storing?
+  -> What properties does this thing have?
+  -> What type of data does each of those properties contain?
+
+
+String Operators and Functions
+  -> ||
+    -> Join two strings
+  -> CONCAT()
+    -> Join two strings
+  -> LOWER()
+    -> Gives a lower case string
+  -> LENGTH()
+    -> Gives a number of characters in a string
+  -> UPPER()
+    -> Gives an upper case string
+
+
+Comparison Math Operators
+  -> =
+    -> Are the values equal?
+  -> <>
+    -> Are the values not equal?
+  -> !=
+    -> Are the values not equal?
+  -> IN
+    -> Is the value present in a list? -> WHERE IN ('Delhi', 'Shangai')
+  -> BETWEEN
+    -> Is the value between two other values? -> WHERE BETWEEN 2000 and 4000
+  -> NOT IN
+    -> Is the value not present in a list? -> WHERE NOT IN ('Delhi', 'Shangai')
+
+
+What Tables Should We Make?
+  -> Common features (like authentication, comments, etc) are frequently built with conventional table names and columns
+    -> Building an upvote system? You're not the first!
+  -> What type of resources exist in your app? Create a seperate table for each of these features
+  -> Features that seem to indicate a relationship or ownership between types of resources need to be reflected in our table design
+
+
+What happens if you tru to delete a parent row where some foreign key is referencing to? - Different options for table when creating foreign key
+  -> ON DELETE RESTRICT
+    -> Throw an error
+  -> ON DELETE NO ACTION
+    -> Throw an error
+  -> ON DELETE CASCADE
+    -> Delete also the row where foreign key is
+  -> ON DELETE SET NULL
+    -> Set the 'user_id' of the photo to 'NULL'
+  -> ON DELETE SET DEFAULT
+    -> Set the 'user_id' of the photo to a default value, if one is provided
