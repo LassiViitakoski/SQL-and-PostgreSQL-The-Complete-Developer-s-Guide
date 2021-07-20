@@ -81,39 +81,9 @@ Aggregation
   -> Looks at many rows and calculates a single value
   -> Words lke 'most', 'average', 'least' are a sign that you need to use an aggregation
 
-QUERY EXAMPLES
 
-DATABASE {
-  CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50)
-  );
-  
-  CREATE TABLE photos (
-    id SERIAL PRIMARY KEY,
-    url VARCHAR(200),
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-  );
-  
-  CREATE TABLE comments (
-    id SERIAL PRIMARY KEY,
-    contents VARCHAR(240),
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    photo_id INTEGER REFERENCES photos(id) ON DELETE CASCADE
-  );
-}
-
-Question {
-
-  Find all the comments for the photo with ID = 3, along with the username of the comment author
-
-  Find the photo with ID = 10 and get the number of comments attached to it
-
-  Find the user with the most activity (most comments + most photos)
-
-  Calculate the average number of characters per comment
-
-  Find the average number of most comments per photo
-
-  Find the photo with the most comments attached to it
-}
+FROM -> Specifies starting set of rows to work with
+JOIN -> Merges in data from additional tables
+WHERE -> Filters the set of rows
+GROUP BY -> Groups rows by a unique set of values
+HAVING -> Filters the set of groups -> Always if you see HAVING there must be GROUP BY
