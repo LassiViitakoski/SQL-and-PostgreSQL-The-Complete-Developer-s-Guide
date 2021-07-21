@@ -1,0 +1,15 @@
+OFFSET
+  -> Example
+    -> SELECT * FROM users OFFSET 40
+      -> Skip first 40 rows -> If our users table has 50 users
+        -> Result is 10 last users
+
+LIMIT
+  -> Example
+    -> SELECT * FROM users LIMIT 10
+      -> Takes 10 first rows from users table
+    
+Example
+  -> SELECT * FROM users OFFSET 3 LIMIT 2:
+    -> Skips first 3 rows and takes after that 2 rows
+      -> Returns 2 users with ids 4 and 5

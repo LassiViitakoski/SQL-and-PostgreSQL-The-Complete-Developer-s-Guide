@@ -1,0 +1,15 @@
+INTERSECT
+  -> Find the rows common in the results of two queries. Remove duplicates
+  -> Yhdistää käskyjä (Samaan tapaan kuin UNION)
+  -> Palauttaa vain rivit, jotka löytyvät molemmista käskyistä
+
+INTERSECT ALL
+  -> Find the rows common in the results of two queries
+  -> Sama kuin INTERSECT, mutta palauttaa rivin moneen kertaan, jos esim. ensimmäisestä
+  -> kyselystä löytyy sama 
+
+EXCEPT
+  -> Find the rows that are present in first query but not second query. Remove duplicates
+
+EXCEPT ALL
+  -> Find the rows that are present in first query but not second query

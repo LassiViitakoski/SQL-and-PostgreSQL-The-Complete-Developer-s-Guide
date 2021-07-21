@@ -1,0 +1,13 @@
+Subqueries can be used as
+  -> A source of a value ->  SELECT p1.name, (SELECT  COUNT(name) FROM products)
+  -> A source of rows ->     FROM (SELECT * FROM products) AS p1
+                             JOIN (SELECT * FROM products) AS p2 ON p1.id = p2.id
+  -> A source of a column -> WHERE p1.id IN (SELECT id FROM products);
+
+Understanding the shape of query result is key of underderstanding subqueries!
+SELECT * FROM orders -> Returns many rows and many columns,
+SELECT id from orders -> Returns many rows and one column
+SELECT COUNT(*) FROM orders -> Returns one row and one column (single value) <- Scalar query
+
+In the SELECT statement we can only write subqueries which return single value
+In the FROM statement we can write any subquery, so long as the outer SELECTs / WHEREs / etc are compatible

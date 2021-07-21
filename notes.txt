@@ -87,3 +87,4 @@ JOIN -> Merges in data from additional tables
 WHERE -> Filters the set of rows
 GROUP BY -> Groups rows by a unique set of values
 HAVING -> Filters the set of groups -> Always if you see HAVING there must be GROUP BY
+ORDER BY -> Sorts rows by given column
