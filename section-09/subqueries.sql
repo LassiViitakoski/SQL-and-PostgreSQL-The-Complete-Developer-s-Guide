@@ -23,10 +23,12 @@ CREATE TABLE orders (
 
 -- List the name and price of all products that are more
 -- expensive than all products in the 'Toys' department
-SELECT name, price
+SELECT
+  name,
+  price
 FROM products
 WHERE price > (
-	SELECT MAX(price)
+  SELECT MAX(price)
   FROM products
   WHERE department = 'Toys'
 );
@@ -41,3 +43,41 @@ FROM
     FROM orders
     GROUP BY user_id
   ) AS p;
+
+-- Find users firstname, who ordered product with product_id = 3
+SELECT first_name
+FROM users
+JOIN (
+ 	SELECT user_id
+  FROM orders
+  WHERE product_id = 3
+) AS o
+ON o.user_id = users.id;
+
+-- Show the id of orders that involve a product with a price / weight ratio greater than 50
+SELECT id
+FROM orders
+WHERE product_id
+IN (
+ 	SELECT id
+  FROM products
+  WHERE price / weight > 50
+);
+
+-- Show the name of all products with a price greater than the average product price
+SELECT name
+FROM products
+WHERE price > (
+  SELECT AVG(price)
+	FROM products
+);
+
+-- Show the name of all products that are not in the same department as products with a price less than 100
+SELECT name
+FROM products
+WHERE department
+NOT IN (
+  SELECT department
+  FROM products
+  WHERE price < 100
+);

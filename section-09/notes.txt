@@ -11,3 +11,15 @@ SELECT COUNT(*) FROM orders -> Returns one row and one column (single value) <- 
 
 In the SELECT statement we can only write subqueries which return single value
 In the FROM statement we can write any subquery, so long as the outer SELECTs / WHEREs / etc are compatible
+In the JOIN statement we can write any subquery that returns data compatible with the 'ON' clause
+In the WHERE statement, structure of data allowed to be returned by subquery changes depending on the comparison operator
+
+Operator in the WHERE clause
+  > <-> Single value
+  < <-> Single value
+  >= <-> Single value
+  <= <-> Single value
+  = <-> Single value
+  <> or != <-> Single value
+  IN <-> Single column
+  NOT IN <-> Single column
