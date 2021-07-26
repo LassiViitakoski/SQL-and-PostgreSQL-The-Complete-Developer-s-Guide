@@ -81,3 +81,47 @@ NOT IN (
   FROM products
   WHERE price < 100
 );
+
+-- Show the name, department and price of products that are more expensive than all products in the 'Industrial' department
+SELECT
+	name,
+  department,
+  price
+FROM products
+WHERE price > ALL (
+ 	SELECT price
+  FROM products
+  WHERE department = 'Industrial'
+);
+
+-- Show the name of products that are more expensive than at least one product in the 'Industrial' department
+SELECT name
+FROM products
+WHERE price > SOME (
+ 	SELECT price
+  FROM products
+  WHERE department = 'Industrial'
+);
+
+-- Show the name, department and price of the most expensive product in each department
+SELECT
+  name,
+  department,
+	price
+FROM products AS p1
+WHERE p1.price = (
+	SELECT MAX(price)
+  FROM products AS p2
+  WHERE p1.department = p2.department
+);
+
+-- Without using a join or a group by, print the number of orders for each product
+SELECT
+	id,
+	name,
+	(
+  	SELECT COUNT(*)
+    FROM orders AS o1
+    WHERE o1.product_id = p1.id
+  ) AS orders_per_product
+FROM products AS p1;

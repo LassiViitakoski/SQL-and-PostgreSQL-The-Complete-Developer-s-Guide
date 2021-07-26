@@ -14,7 +14,9 @@ In the FROM statement we can write any subquery, so long as the outer SELECTs / 
 In the JOIN statement we can write any subquery that returns data compatible with the 'ON' clause
 In the WHERE statement, structure of data allowed to be returned by subquery changes depending on the comparison operator
 
-Operator in the WHERE clause
+Operator in the WHERE clause and
+Structure of data the subquery must return
+
   > <-> Single value
   < <-> Single value
   >= <-> Single value
@@ -23,3 +25,17 @@ Operator in the WHERE clause
   <> or != <-> Single value
   IN <-> Single column
   NOT IN <-> Single column
+
+  > ALL <-> Single column
+  < ALL <-> Single column
+  >= ALL <-> Single column
+  <= ALL <-> Single column
+  = ALL <-> Single column
+  <> ALL <-> Single column
+  
+  > SOME <-> Single column
+  < SOME <-> Single column
+  >= SOME <-> Single column
+  <= SOME <-> Single column
+  = SOME <-> Single column
+  <> SOME <-> Single column
