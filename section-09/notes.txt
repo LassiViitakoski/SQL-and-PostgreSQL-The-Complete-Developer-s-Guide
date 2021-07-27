@@ -39,3 +39,17 @@ Structure of data the subquery must return
   <= SOME <-> Single column
   = SOME <-> Single column
   <> SOME <-> Single column
+
+DISTINCT
+
+What unique departments are there?
+  -> SELECT DISTINCT department FROM products;
+
+How many unique departments are there?
+  -> SELECT COUNT(DISTINCT department) FROM prodcuts;
+
+GREATEST
+  -> Picks greates value inside paranthesis
+
+LEAST
+  -> Picks smallest value inside paranthesis

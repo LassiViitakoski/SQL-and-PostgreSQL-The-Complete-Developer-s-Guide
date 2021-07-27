@@ -125,3 +125,37 @@ SELECT
     WHERE o1.product_id = p1.id
   ) AS orders_per_product
 FROM products AS p1;
+
+-- Compute the cost to ship each item
+-- Shipping is the maximum of (weight * $2) or $30
+SELECT
+	name,
+  weight,
+	GREATEST(
+  	weight * 2,
+    30
+  ) AS cost_to_ship
+FROM products;
+
+-- All products are on sale!
+-- Price is the least of the product's price * 0.5 or $400
+SELECT
+	name,
+  price,
+  LEAST(
+    price * 0.5,
+    400
+  ) AS price_on_sale
+FROM products;
+
+-- Print each product and its price. Also print a description of the price
+-- If price > 600 then 'high', If price > 300 then 'medium', else print 'cheap'
+SELECT
+	name,
+  price,
+	CASE
+  	WHEN price > 600 THEN 'high'
+    WHEN price > 300 THEN 'medium'
+    ELSE 'cheap'
+  END
+FROM products;
