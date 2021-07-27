@@ -1,0 +1,48 @@
+Data types in PostgreSQL (marked with * are most important datatypes)
+  -> Numbers *
+  -> Date/Time *
+  -> Character *
+  -> Boolean *
+  -> Currency
+  -> Binary
+  -> JSON
+  -> Geometric
+  -> Range
+  -> Arrays
+  -> XML
+  -> UUID
+
+Numeric Types
+  -> smallint
+  -> integer
+  -> bigint
+  
+  -> smallserial -> 1 to 32767
+  -> serial -> 1 to 2137483647
+  -> bigserial
+
+  -> decimal
+  -> numeric
+
+  -> real
+  -> double precision
+  -> float
+
+  -> real, double precision and float are more inaccurate than decimal and numeric
+  -> but they are more efficient to do calculations
+
+Numeric Types Fast Rules
+  -> 'id' column of any table -> Mark the column as serial
+  -> Need to store a number without a decimal -> Mark the column as integer
+  -> Need to store a number with a decimal and this data need to be very accurate
+    -> Bank balance, grams of gold, scientific calculations
+      -> Mark the column as numeric
+  -> Need to store a number with a decimal and the decimal doesn't make a big difference
+    -> Kilograms of trash in a landfill, liters of water in a lake, air pressure in a tire
+      -> Mark the column as double precision
+
+Character Types
+  -> CHAR(5) -> Store some characters, length will always be 5 even if PG has to insert spaces
+  -> VARHCAR -> Store any length of string
+  -> VARCHAR(40) -> Store a string up to 40 characters, automatically remove extra characters
+  -> TEXT -> Store any length of string
