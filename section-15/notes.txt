@@ -1,0 +1,4 @@
+Working with many tables
+  -> Challenging to keep the structure / names of many different tables in your head
+  -> Nice to document your db structure somehow!
+  -> We can use a schema designer to help guide our design

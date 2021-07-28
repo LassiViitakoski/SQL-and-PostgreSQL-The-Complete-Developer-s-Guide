@@ -1,0 +1,59 @@
+Row-Level Validation
+  -> Things we can check for when a row is being inserted / updated {
+    -> Is a given value defined?
+    -> Is a value unique in its column?
+    -> Is a value >, <, >=, <=, = some other value?
+  }
+
+Adding NOT NULL
+  -> When Creating The Table
+    -> CREATE TABLE products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(50),
+      department VARCHAR(50),
+      price INTEGER NOT NULL,
+      weight INTEGER
+    );
+  -> After The Table Was Created
+    ->  ALTER TABLE products
+        ALTER COLUMN price
+        SET NOT NULL;
+
+Adding UNIQUE
+  -> When Creating Table
+    -> CREATE TABLE products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(50) UNIQUE,
+      department VARCHAR(50),
+      price INTEGER,
+      weight INTEGER
+    );
+  -> After The Table Was Created
+    ->  ALTER TABLE products
+        ADD UNIQUE(name);
+
+Adding Check Validation
+  -> When Creating The Table
+    -> CREATE TABLE products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(50),
+      department VARCHAR(50),
+      price INTEGER CHECK (price > 0),
+      weight INTEGER
+    );
+  -> After The Table Was Created
+    ->  ALTER TABLE products
+        ADD CHECK (price > 0);
+
+
+Comparing validation happening between web server and database
+
+Web Server
+  -> Easier to express more complex validation
+  -> Far easier to apply new validation rules
+  -> Many libraries to handle validation automatically
+
+Database
+  -> Validation still applied even if you connect with a different client
+  -> Guaranteed that validation is always applied
+  -> Can only apply new validation rules if all existing rows satisfy it
