@@ -2,3 +2,10 @@ Working with many tables
   -> Challenging to keep the structure / names of many different tables in your head
   -> Nice to document your db structure somehow!
   -> We can use a schema designer to help guide our design
+
+SQL Schema Designers
+  -> dbdiagram.io -> coding based tool -> tested -> Tätä alotaan käyttämään
+  -> drawsql.app
+  -> sqldbm.com
+  -> quickdatabasediagrams.com
+  -> ondras.zarovi.cz/sql/demo -> diagram-based tool -> tested
