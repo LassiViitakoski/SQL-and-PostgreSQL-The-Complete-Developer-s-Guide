@@ -1,0 +1,31 @@
+A Story on Migrations
+  -> We're going to walk through a really busy day that you might have working on a database
+  -> We'll identify some huge issues that come up when you start changing the structure of your DB
+  -> These are issues that I can almost promise you will run into at some point
+  
+Big Lessons of Story
+  -> Changes to the DB structure and changes to clients need to be made at precisely the same time
+  -> When working with other engineers, we need a really easy way to tie the structure of our database to our code
+
+Migration File
+  -> Up
+    -> Contains a statement that advances, or upgrades, the structure of our DB
+  -> Down
+    -> Contains a statement that exactly undo's the 'Up' command
+
+Many migration tools can automatically generate migrations for you
+  -> I highly recommend you write all migrations manually using plain SQL - you have enough knowledge of this!
+
+Creating migration file
+  -> npm run migrate create table comments
+    -> Creates js file called table-comments
+
+Connect to PostgreSQL DATABASE_URL environment variable
+  -> postgres://USERNAME:PASSWORD@IP:PORT/DATABASENAME
+  -> postgres://postgres:*****@localhost:5432/socialnetwork
+  -> In Windows Powershell
+    -> $env:DATABASE_URL="postgres://postgres:******@localhost:5432/socialnetwork";  npm run migrate up
+  -> In Windows CMD
+    -> set DATABASE_URL=postgres://postgres:******@localhost:5432/socialnetwork && npm run migrate up
+  -> In Git Bash
+    -> DATABASE_URL=postgres://postgres:******@localhost:5432/socialnetwork npm run migrate up

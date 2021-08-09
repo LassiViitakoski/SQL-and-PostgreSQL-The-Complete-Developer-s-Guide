@@ -1,0 +1,11 @@
+BEGIN;
+  -> Start transaction
+
+COMMIT;
+  -> End transaction and commit changes
+
+ROLLBACK;
+  -> End transaction and revert queries done after BEGIN;
+
+Running a bad command will put the transaction in an 'aborted' state - you must rollback
+Losing the connection (crashing) will automatically rollback the transaction
