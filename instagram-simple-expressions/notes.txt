@@ -1,0 +1,6 @@
+Common Table Expression (CTE)
+  -> Defined with a 'with' before the main query
+  -> Produces a table that we can refer to anywhere else
+  -> Two forms!
+    -> Simple form used to make a query easier to understand
+    -> Recursive form used to write queries that are otherwise impossible to write!

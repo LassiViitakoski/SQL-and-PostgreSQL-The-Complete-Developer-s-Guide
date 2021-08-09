@@ -1,0 +1,6 @@
+Important Notes on Recursive CTE's
+  -> Very, very different from simple CTE's
+  -> Useful anytime you have a tree or graph-type data structure
+  -> Must use a 'union' keyword - simple CTE's don't have to use a union!
+  -> This is super, super advanced, I don't exprect you to be able to write your own
+  -> recursive CTE's - just understand that they exist!

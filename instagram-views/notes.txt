@@ -1,0 +1,39 @@
+Problems with tables caption_tags and photo_tags
+  -> We've had to find the union several times
+  -> There's been no benefit to keeping these records in seperate tables!
+  -> Guess we have a bad design!
+  -> Two possibilities to fix this up
+    -> Copy all the rows from caption_tags and photo_tags
+    -> Let's create new table called 'tags' and insert all the rows to there
+      -> INSERT INTO tags(created_at, updated_at, user_id, post_id, x, y)
+         SELECT created_at, updated_at, user_id, post_id, x, y
+         FROM photos_tags;
+      
+      -> INSERT INTO tags(created_at, updated_at, user_id, post_id)
+         SELECT created_at, updated_at, user_id, post_id
+         FROM caption_tags;
+    
+    -> Downsides with this solution
+      -> Can't copy over the ID's of photo_tags and caption_tags since they must be unique
+      -> If we delete original tables, we break any existing queries that refer to them
+    
+    OR
+
+    -> Create a view!
+      -> Create a fake table that has rows from other tables
+      -> These can be exact rows as they exist on another table, or a computed value
+      -> Can reference the view in any place where we'd normally reference a table
+      -> View doesn't actually create a new table or move any data around
+      -> Doesn't have to be used for a union! Can compute absolutely any values
+
+
+Another possible use case for View!
+  -> The 10 most recent posts are really important!
+    -> Show the users who created the 10 most recent posts
+    -> Show the number of likes each of the 10 most recent posts received
+    -> Show the users who were tagged in the 10 most recent posts
+    -> Show the hashtags used by the 10 most recent posts
+    -> Show the average number of hashtags used in the 10 most recent posts
+    -> Show the total number of comments the 10 most recent posts received
+
+  -> We can create View to find 10 recent posts that we dont have to write query again and again

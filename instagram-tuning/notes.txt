@@ -1,0 +1,8 @@
+EXPLAIN -> Build a query plan and display info about it
+EXPLAIN ANALYZE -> Build a query plan, run it, and info about it
+
+-> These are for benchmarking + evaluating queries, not for use in real data fetching!!!
+
+Working definition for 'cost'
+  -> Amount of time (seconds?, milliseconds?) to execute some part of our query plan
+    -> Not super accurate, but good enough for now

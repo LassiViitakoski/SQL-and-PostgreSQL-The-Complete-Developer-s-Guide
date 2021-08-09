@@ -1,3 +1,7 @@
+Katsomatta jääneet videot (hc - kamaa - behind the scenes stuff)
+  -> Section 22 - Part 189 - Heap File Layout
+  -> Section 23 - Part 198 - Behind the Scenes of Indexes
+
 Database Design Process
   -> What kind of thing are we storing?
   -> What properties does this thing have?

@@ -5,6 +5,14 @@ Row-Level Validation
     -> Is a value >, <, >=, <=, = some other value?
   }
 
+Thinking models when to use validation in database level
+  -> Rules around validating the value might change frequently
+    -> No validation
+  -> Rules around validating the value are complex
+    -> No validation
+  -> We want to make sure we have the right type or domain of value
+    -> Add validation
+
 Adding NOT NULL
   -> When Creating The Table
     -> CREATE TABLE products (

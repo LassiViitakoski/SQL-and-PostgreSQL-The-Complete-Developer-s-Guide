@@ -1,0 +1,27 @@
+How indexes work?
+  -> Step 1
+    -> Which column do we want to have very fast lookups on?
+  -> Step 2
+    -> Extract only the property we want to do fast lookups by and the block / index for each
+  -> Step 3
+    -> Sort in some meaningful way
+  -> Step 4
+    -> Organize into a tree data structure
+  -> Step 5
+    -> Add helpers to the root node
+
+Downsides on indexes
+  -> Can be large! Stores data from at least one column of the real table
+  -> Slows down insert / update / delete - the index has to be updated!
+  -> Index might not actually get used!
+
+Different kind of indexes
+  -> B-Tree -> General purpose index. 99% of the time you want this.
+  -> Hash -> Speeds up simple equality checks.
+  -> GiST -> Geometry, full-text search.
+  -> SP-GiST -> Clustered data, such as dates - many rows might have the same year.
+  -> GIN -> For columns that contain arrays or JSON data.
+  -> BRIN -> Specialized for really large datasets.
+
+Postgres automatically creates an index for the primary key column of every table
+Postgres automatically creates an indexes for any 'unique' constraint

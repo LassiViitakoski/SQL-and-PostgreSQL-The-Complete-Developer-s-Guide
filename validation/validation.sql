@@ -6,8 +6,8 @@ ALTER TABLE products
 ALTER COLUMN price
 SET NOT NULL;
 
-In this case you can add multiple same name or department
-but not row where name and department both are same as some other row
+-- In this case you can add multiple same name or department
+-- but not row where name and department both are same as some other row
 ALTER TABLE products
 ADD UNIQUE(name, department);
 

@@ -1,0 +1,15 @@
+Performance with Postgres
+  -> You can get away with quick tips and hints
+  -> Much easier to understand performance if you understand the internals
+  -> Take a look at how data is stored and accessed
+  -> Investigate at how indexes are stored and used
+  -> Put these together to understand how queries are executed
+
+How the data is REALLY stored
+  -> Heap or Heap File
+    -> File that contains all the data (rows) of our table
+  -> Tuple or Item
+    -> Individual row from the table
+  -> Block or Page
+    -> The heap file is divided into many different 'blocks' or 'pages'.
+    -> Each page / block stores some number of rows.
